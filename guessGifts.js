@@ -7,16 +7,11 @@ function guessGifts(wishlist, presents){
         let clatters = presents[i].clatters;
         let weight = presents[i].weight;
         for(let j = 0; j < wishlist.length; j++){
-            if(wishlist[j].size === size){
-                if(wishlist[j].clatters === clatters){
-                    if(wishlist[j].weight === weight){
-                        gifts.push(wishlist[j].name);
-                    }
-                }
+            if(wishlist[j].size === size && wishlist[j].clatters === clatters && wishlist[j].weight === weight){
+                gifts.push(wishlist[j].name);
             }
         }
     }
-
     return gifts;
 }
 
