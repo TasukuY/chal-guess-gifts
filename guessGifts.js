@@ -1,17 +1,29 @@
 
-function guessGifts(wishlist, presents){
-    let gifts = [];
+// function guessGifts(wishlist, presents){
+//     let gifts = [];
 
-    for(let i = 0; i < presents.length; i++){
-        let size = presents[i].size;
-        let clatters = presents[i].clatters;
-        let weight = presents[i].weight;
-        for(let j = 0; j < wishlist.length; j++){
-            if(wishlist[j].size === size && wishlist[j].clatters === clatters && wishlist[j].weight === weight){
-                gifts.push(wishlist[j].name);
+//     for(let i = 0; i < presents.length; i++){
+//         let size = presents[i].size;
+//         let clatters = presents[i].clatters;
+//         let weight = presents[i].weight;
+//         for(let j = 0; j < wishlist.length; j++){
+//             if(wishlist[j].size === size && wishlist[j].clatters === clatters && wishlist[j].weight === weight){
+//                 gifts.push(wishlist[j].name);
+//             }
+//         }
+//     }
+//     return gifts;
+// }
+
+let guessGifts = (wishlist, presents) => {
+    let gifts = [];
+    presents.forEach(present => {
+        wishlist.forEach(wish => {
+            if(present.size === wish.size && present.clatters === wish.clatters && present.weight === wish.weight){
+                gifts.push(wish.name);
             }
-        }
-    }
+        })
+    });
     return gifts;
 }
 
@@ -26,4 +38,4 @@ var presents = [
     {size: "small", clatters: "yes", weight: "light"}
 ];
 
-console.log(guessGifts(wishlist, presents));
+console.log(guessGifts2(wishlist, presents));
